@@ -22,7 +22,7 @@ public class ApiTest {
         RaffleAwardListRequestDTO requestDTO = new RaffleAwardListRequestDTO();
         requestDTO.setStrategyId(1000001L);
         log.info(JSON.toJSONString(requestDTO));
-        ArrayList
+
     }
 
     private double convert(double min){
