@@ -5,8 +5,6 @@ import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
  * @description 功能测试
@@ -22,7 +20,6 @@ public class ApiTest {
         RaffleAwardListRequestDTO requestDTO = new RaffleAwardListRequestDTO();
         requestDTO.setStrategyId(1000001L);
         log.info(JSON.toJSONString(requestDTO));
-
     }
 
     private double convert(double min){
