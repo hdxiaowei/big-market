@@ -1,6 +1,5 @@
 package cn.bugstack.infrastructure.persistent.dao;
 
-import cn.bugstack.infrastructure.persistent.po.RuleTreeNode;
 import cn.bugstack.infrastructure.persistent.po.RuleTreeNodeLine;
 import org.apache.ibatis.annotations.Mapper;
 

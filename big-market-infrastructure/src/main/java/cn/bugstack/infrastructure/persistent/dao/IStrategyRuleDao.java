@@ -4,7 +4,6 @@ import cn.bugstack.infrastructure.persistent.po.StrategyRule;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
