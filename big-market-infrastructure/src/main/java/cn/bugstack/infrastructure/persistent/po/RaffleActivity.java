@@ -42,8 +42,6 @@ public class RaffleActivity {
      */
     private Date endDateTime;
 
-
-
     /**
      * 抽奖策略ID
      */
