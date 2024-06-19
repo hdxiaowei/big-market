@@ -116,6 +116,7 @@ public class RaffleActivityController implements IRaffleActivityService {
                     .userId(orderEntity.getUserId())
                     .strategyId(orderEntity.getStrategyId())
                     .build());
+
             // 4. 存放结果 - 写入中奖记录
             UserAwardRecordEntity userAwardRecord = UserAwardRecordEntity.builder()
                     .userId(orderEntity.getUserId())
