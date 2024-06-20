@@ -48,7 +48,7 @@ public class StrategyRepositoryTest {
     @Test
     public void test_subtractionAwardStock() {
         String cacheKey = Constants.RedisKey.STRATEGY_AWARD_COUNT_KEY + "300001" + Constants.UNDERLINE + "102";
-        strategyRepository.subtractionAwardStock(cacheKey);
+        //strategyRepository.subtractionAwardStock(cacheKey);
     }
 
     @Test

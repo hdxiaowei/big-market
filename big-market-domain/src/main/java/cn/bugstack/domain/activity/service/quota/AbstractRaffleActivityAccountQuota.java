@@ -62,4 +62,9 @@ public abstract class AbstractRaffleActivityAccountQuota extends RaffleActivityA
 
     protected abstract void doSaveOrder(CreateQuotaOrderAggregate createOrderAggregate);
 
+
+    @Override
+    public Integer queryRaffleActivityAccountDayPartakeCount(Long activityId, String userId) {
+        return activityRepository.queryRaffleActivityAccountDayPartakeCount(activityId, userId);
+    }
 }
