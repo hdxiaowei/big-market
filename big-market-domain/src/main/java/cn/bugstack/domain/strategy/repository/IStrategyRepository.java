@@ -4,6 +4,7 @@ import cn.bugstack.domain.strategy.model.entity.StrategyAwardEntity;
 import cn.bugstack.domain.strategy.model.entity.StrategyEntity;
 import cn.bugstack.domain.strategy.model.entity.StrategyRuleEntity;
 import cn.bugstack.domain.strategy.model.valobj.RuleTreeVO;
+import cn.bugstack.domain.strategy.model.valobj.RuleWeightVO;
 import cn.bugstack.domain.strategy.model.valobj.StrategyAwardRuleModelVO;
 import cn.bugstack.domain.strategy.model.valobj.StrategyAwardStockKeyVO;
 
@@ -60,6 +61,15 @@ public interface IStrategyRepository {
      * @param cacheKey 缓存Key
      * @return 扣减结果
      */
+    Boolean subtractionAwardStock(String cacheKey);
+
+    /**
+     * 缓存key，decr 方式扣减库存
+     *
+     * @param cacheKey    缓存Key
+     * @param endDateTime 活动结束时间
+     * @return 扣减结果
+     */
     Boolean subtractionAwardStock(String cacheKey, Date endDateTime);
 
     /**
@@ -99,6 +109,13 @@ public interface IStrategyRepository {
      */
     Long queryStrategyIdByActivityId(Long activityId);
 
+    /**
+     * 查询用户抽奖次数 - 当天的；策略ID:活动ID 1:1 的配置，可以直接用 strategyId 查询。
+     *
+     * @param userId     用户ID
+     * @param strategyId 策略ID
+     * @return 用户今日参与次数
+     */
     Integer queryTodayUserRaffleCount(String userId, Long strategyId);
 
     /**
@@ -108,4 +125,22 @@ public interface IStrategyRepository {
      * @return key 规则树，value rule_lock 加锁值
      */
     Map<String, Integer> queryAwardRuleLockCount(String[] treeIds);
+
+    /**
+     * 根据用户ID、策略ID，查询用户活动账户总使用量
+     *
+     * @param userId     用户ID
+     * @param strategyId 策略ID
+     * @return 使用总量
+     */
+    Integer queryActivityAccountTotalUseCount(String userId, Long strategyId);
+
+    /**
+     * 查询奖品权重配置
+     *
+     * @param strategyId 策略ID
+     * @return 权重规则
+     */
+    List<RuleWeightVO> queryAwardRuleWeight(Long strategyId);
+
 }
