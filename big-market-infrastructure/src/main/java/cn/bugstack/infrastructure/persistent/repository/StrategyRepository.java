@@ -368,7 +368,6 @@ public class StrategyRepository implements IStrategyRepository {
         strategyRuleReq.setStrategyId(strategyId);
         strategyRuleReq.setRuleModel(DefaultChainFactory.LogicModel.RULE_WEIGHT.getCode());
         String ruleValue = strategyRuleDao.queryStrategyRuleValue(strategyRuleReq);
-
         // 2. 借助实体对象转换规则
         StrategyRuleEntity strategyRuleEntity = new StrategyRuleEntity();
         strategyRuleEntity.setRuleModel(DefaultChainFactory.LogicModel.RULE_WEIGHT.getCode());

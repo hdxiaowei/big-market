@@ -20,8 +20,6 @@
         #{userId}, #{activityId}, #{month}, #{monthCount}, #{monthCountSurplus}, now(), now())
     </insert>
 
-
-
     <select id="queryActivityAccountMonthByUserId" parameterType="cn.bugstack.infrastructure.persistent.po.RaffleActivityAccountMonth" resultMap="dataMap">
         select user_id, activity_id, month, month_count, month_count_surplus
         from raffle_activity_account_month
