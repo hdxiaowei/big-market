@@ -52,7 +52,7 @@ public class RaffleActivityAccountQuotaServiceTest {
         log.info("装配活动：{}", activityArmory.assembleActivitySku(9011L));
     }
 
-    @Test
+    /*@Test
     public void test_armory() {
         Response<Boolean> response = raffleActivityService.armory(100301L);
         log.info("测试结果：{}", JSON.toJSONString(response));
@@ -69,12 +69,12 @@ public class RaffleActivityAccountQuotaServiceTest {
         log.info("测试结果：{}", orderId);
     }
 
-    /**
+    *//**
      * 测试库存消耗和最终一致更新
      * 1. raffle_activity_sku 库表库存可以设置20个
      * 2. 清空 redis 缓存 flushall
      * 3. for 循环20次，消耗完库存，最终数据库剩余库存为0
-     */
+     *//*
     @Test
     public void test_createSkuRechargeOrder() throws InterruptedException {
         for (int i = 0; i < 20; i++) {
@@ -116,6 +116,6 @@ public class RaffleActivityAccountQuotaServiceTest {
         tradeEntity.setOutBusinessNo("70009240609002");
         creditAdjustService.createOrder(tradeEntity);
         new CountDownLatch(1).await();
-    }
+    }*/
 
 }

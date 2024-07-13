@@ -23,21 +23,6 @@ public class ActivityArmory implements IActivityArmory, IActivityDispatch {
     private IActivityRepository activityRepository;
 
     @Override
-    public boolean assembleActivitySku(Long sku) {
-        // 预热活动sku库存
-        ActivitySkuEntity activitySkuEntity = activityRepository.queryActivitySku(sku);
-        cacheActivitySkuStockCount(sku, activitySkuEntity.getStockCountSurplus());
-
-        // 预热活动【查询时预热到缓存】
-        activityRepository.queryRaffleActivityByActivityId(activitySkuEntity.getActivityId());
-
-        // 预热活动次数【查询时预热到缓存】
-        activityRepository.queryRaffleActivityCountByActivityCountId(activitySkuEntity.getActivityCountId());
-
-        return true;
-    }
-
-    @Override
     public boolean assembleActivitySkuByActivityId(Long activityId) {
         List<ActivitySkuEntity> activitySkuEntities = activityRepository.queryActivitySkuListByActivityId(activityId);
         for (ActivitySkuEntity activitySkuEntity : activitySkuEntities) {
@@ -48,6 +33,21 @@ public class ActivityArmory implements IActivityArmory, IActivityDispatch {
 
         // 预热活动【查询时预热到缓存】
         activityRepository.queryRaffleActivityByActivityId(activityId);
+
+        return true;
+    }
+
+    @Override
+    public boolean assembleActivitySku(Long sku) {
+        // 预热活动sku库存
+        ActivitySkuEntity activitySkuEntity = activityRepository.queryActivitySku(sku);
+        cacheActivitySkuStockCount(sku, activitySkuEntity.getStockCountSurplus());
+
+        // 预热活动【查询时预热到缓存】
+        activityRepository.queryRaffleActivityByActivityId(activitySkuEntity.getActivityId());
+
+        // 预热活动次数【查询时预热到缓存】
+        activityRepository.queryRaffleActivityCountByActivityCountId(activitySkuEntity.getActivityCountId());
 
         return true;
     }
